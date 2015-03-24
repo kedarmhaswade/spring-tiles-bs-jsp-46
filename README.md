@@ -3,6 +3,7 @@ This covers the Spring Tutorials 4-7 on YouTube by Jiri Pinkas
 
 ## Introduction
 In these three videos, Jiri covers three topics:
+
 1. Using Apache Tiles in Spring
 2. Using Twitter Bootstrap in your app
 3. The servlet/JSP API
