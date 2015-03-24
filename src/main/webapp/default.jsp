@@ -66,3 +66,16 @@ Note the structure of the web-app as well.
 </p>
 
 <h3> Part 2 Using TwBS: Video 5</h3>
+<p> It is rather unclear why Jiri is using both tiles and Twitter Bootstrap. He says it is only to make
+the app 'look nice'. But that is unfortunate, because TwBS is much more than that and once again, both
+tiles and TwBS is quite unnecessary. In this video, he basically pulls stuff from getbootstrap.com and
+just does what many of us do -- copy+paste TwBS dependencies.</p>
+
+<p>
+Here one other mistake I see is asking to copy the bootstrap js in the head tag. No. It should be in the body tag, as
+late as possible, to let the page load first.
+</p>
+
+<h3> Part 3 Using Sevlet/JSP as a Provided Dependency </h3>
+
+This is already done in the pom.xml of this project.
