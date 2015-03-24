@@ -76,6 +76,32 @@ Here one other mistake I see is asking to copy the bootstrap js in the head tag.
 late as possible, to let the page load first.
 </p>
 
-<h3> Part 3 Using Sevlet/JSP as a Provided Dependency </h3>
+<h3> Part 3 Using Sevlet/JSP as a Provided Dependency: Video 6 </h3>
 
 This is already done in the pom.xml of this project.
+
+<h3> Part 4 Using Spring Application Context: Video 7 </h3>
+
+Apparently, it is a good practice that we do not use the same dispatcher-servlet.xml context.
+Add the following to your web.xml
+<pre>
+&lt;listener&gt;
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+&lt;/listener&gt;
+</pre>
+
+and then Spring looks for a file named applicationContext.xml and create another application context where beans
+defined in that file are loaded.
+(the name applicationContext.xml is configurable).
+See <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#context-create">here </a> for details.
+
+The idea is as follows:
+<ul>
+    <li> The dispatcher servlet context loads all the controllers and view resolver and tiles tilesConfigurer etc. because
+         that is related to dispatcher mechanism (the front controller)
+    </li>
+    <li>
+        The other beans are reserved in the overall application context. Note that this context excludes the controller package
+        from the application.
+    </li>
+</ul>
