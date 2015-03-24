@@ -51,7 +51,8 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.6</version>
+            <!-- another logging mess in Java! The following version works, 1.7.6 does not! -->
+			<version>1.5.8</version>
 		</dependency>
 
 		<!-- Core utilities used by other modules. Define this if you use Spring 
@@ -175,7 +176,16 @@
 			<version>${org.springframework.version}</version>
 			<scope>test</scope>
 		</dependency>
-
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-core</artifactId>
+            <version>${apache.tiles}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-jsp</artifactId>
+            <version>${apache.tiles}</version>
+        </dependency>
 	</dependencies>
 
 	<build>
@@ -184,6 +194,11 @@
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.1.3.v20140225</version>
+                <configuration>
+                    <httpConnector>
+                        <port>9090</port>
+                    </httpConnector>
+                </configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>

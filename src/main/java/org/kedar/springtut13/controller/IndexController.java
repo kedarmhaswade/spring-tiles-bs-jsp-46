@@ -15,14 +15,15 @@ public class IndexController {
     //    a shortcut for: @RequestMapping(value = "/index")
     @RequestMapping("/index")
     public String index(Model model) {
-        log.debug("controller:index in");
-        return "/WEB-INF/jsp/index.jsp"; // returns the location of the view template: our JSP page
+        log.debug("controller:index in for /index");
+        return "index"; // Now we are using tiles, this name matches the tiles definition in /WEB-INF/defs/general.xml
+        //the actual location of index.jsp is found from tiles definition
     }
     //    a shortcut for: @RequestMapping(value = "/")
     @RequestMapping("/")
     public String home(Model model) {
-        log.debug("controller:index in");
-        return "default.jsp"; // returns the location of the view template: our JSP page
+        log.debug("controller:index in for /");
+        return "default"; // refer to the tiles definition with name "default"
     }
 }
 
